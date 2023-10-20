@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CAP RiskManagement
 _out
 *.db
@@ -34,3 +35,9 @@ mta_archives/
 build/ui-deployer/
 build/dist/
 env/
+=======
+node_modules
+
+.gitignore
+>>>>>>> mainbranch
+node_modules
