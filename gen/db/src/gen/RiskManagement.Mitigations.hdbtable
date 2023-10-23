@@ -1,0 +1,13 @@
+COLUMN TABLE RiskManagement_Mitigations (
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  ID NVARCHAR(36) NOT NULL,
+  description NVARCHAR(100),
+  owner NVARCHAR(100),
+  "TIMELINE" NVARCHAR(100),
+  PRIMARY KEY(ID)
+) WITH ASSOCIATIONS (
+  MANY TO MANY JOIN RiskManagement_Risks AS risks ON (risks.miti_ID = ID)
+)

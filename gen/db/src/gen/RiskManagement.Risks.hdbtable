@@ -1,0 +1,17 @@
+COLUMN TABLE RiskManagement_Risks (
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  ID NVARCHAR(36) NOT NULL,
+  title NVARCHAR(100),
+  prio NVARCHAR(5),
+  descr NVARCHAR(100),
+  impact INTEGER,
+  criticality INTEGER,
+  miti_ID NVARCHAR(36),
+  supplier_BusinessPartner NVARCHAR(10),
+  PRIMARY KEY(ID)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN RiskManagement_Mitigations AS miti ON (miti.ID = miti_ID)
+)

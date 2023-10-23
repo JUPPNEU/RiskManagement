@@ -1,0 +1,18 @@
+COLUMN TABLE RiskManagementService_Mitigations_drafts (
+  createdAt TIMESTAMP NULL,
+  createdBy NVARCHAR(255) NULL,
+  modifiedAt TIMESTAMP NULL,
+  modifiedBy NVARCHAR(255) NULL,
+  ID NVARCHAR(36) NOT NULL,
+  description NVARCHAR(100) NULL,
+  owner NVARCHAR(100) NULL,
+  "TIMELINE" NVARCHAR(100) NULL,
+  IsActiveEntity BOOLEAN,
+  HasActiveEntity BOOLEAN,
+  HasDraftEntity BOOLEAN,
+  DraftAdministrativeData_DraftUUID NVARCHAR(36) NOT NULL,
+  PRIMARY KEY(ID)
+) WITH ASSOCIATIONS (
+  MANY TO MANY JOIN RiskManagementService_Risks AS risks ON (risks.miti_ID = ID),
+  MANY TO ONE JOIN RiskManagementService_DraftAdministrativeData AS DraftAdministrativeData ON (DraftAdministrativeData.DraftUUID = DraftAdministrativeData_DraftUUID)
+)
